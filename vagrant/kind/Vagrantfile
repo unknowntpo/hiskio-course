@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
 
         sudo kind create cluster --config hiskio-course/vagrant/kind.yaml
         mkdir -p $HOME/.kube
-        kind get kubeconfig > $HOME/.kube/config
+        sudo kind get kubeconfig > $HOME/.kube/config
         sudo chown $(id -u):$(id -g) $HOME/.kube/config
     fi
 
