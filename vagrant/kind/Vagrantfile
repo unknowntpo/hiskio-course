@@ -69,6 +69,8 @@ Vagrant.configure("2") do |config|
         sudo mv ./kind /usr/local/bin/kind
 
         sudo kind create cluster --config hiskio-course/vagrant/kind.yaml
+        mkdir -p $HOME/.kube
+        kind get kubeconfig > $HOME/.kube/config
         sudo chown $(id -u):$(id -g) $HOME/.kube/config
     fi
 
@@ -87,9 +89,8 @@ Vagrant.configure("2") do |config|
   SHELL
 
   config.vm.network :private_network, ip: "172.17.8.111"
-  config.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--cpus", 2]
-      v.customize ["modifyvm", :id, "--memory", 4096]
-      v.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+  config.vm.provider "parallels" do |v|
+    v.memory = 8192
+    v.cpus = 4
   end
 end
