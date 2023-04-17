@@ -1,0 +1,11 @@
+Host k8s
+  HostName 10.211.55.4
+  User vagrant
+  Port 22
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/unknowntpo/repo/unknowntpo/hiskio-course/vagrant/kind/.vagrant/machines/k8s/parallels/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+

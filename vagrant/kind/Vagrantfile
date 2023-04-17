@@ -36,6 +36,8 @@ Vagrant.configure("2") do |config|
     then
       git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
       bash ~/.bash_it/install.sh -s
+      bash-it enable alias all
+      bash-it enable completion all
     fi
 
     #Disable swap
@@ -58,6 +60,7 @@ Vagrant.configure("2") do |config|
 
         echo 'source <(kubectl completion bash)' >> ~/.bashrc
         echo 'alias kc="kubectl"' >> ~/.bashrc
+        source ~/.bashrc
     fi
 
     if ! command -v kind &> /dev/null
